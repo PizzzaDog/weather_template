@@ -13,11 +13,13 @@ public class ManagerService {
     @Autowired
     WeatherService weatherService;
 
-    public MessageDto getWeatherByPhoneNumber(String numer) {
-        String city = phoneService.getCityByNymber(numer);
+    public MessageDto getWeatherByPhoneNumber(String number) {
+        //Replacement of %2B or space in number
+        number = number.replaceFirst("[ |+]", "");
+        String city = phoneService.getCityByNymber(number);
         String weather = weatherService.getWeatherByCity(city);
         MessageDto message = new MessageDto();
-        message.setNumber(numer);
+        message.setNumber(number);
         message.setWeather(weather);
         message.setMessage("City - " + city);
         return message;

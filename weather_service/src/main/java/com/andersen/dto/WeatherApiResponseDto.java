@@ -12,7 +12,6 @@ import lombok.Setter;
 public class WeatherApiResponseDto {
     private Double temp;
     private WC main;
-    private WCC[] weather;
 
     public String getTemp() {
         return this.main.temp.toString();
@@ -25,13 +24,5 @@ public class WeatherApiResponseDto {
     @NoArgsConstructor
     class WC {
         private Double temp;
-    }
-
-    @Getter
-    @Setter
-    @NoArgsConstructor
-    class WCC {
-        private Integer id;
-        private String main;
     }
 }
