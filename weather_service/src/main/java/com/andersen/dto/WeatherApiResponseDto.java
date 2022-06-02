@@ -1,0 +1,37 @@
+package com.andersen.dto;
+
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class WeatherApiResponseDto {
+    private Double temp;
+    private WC main;
+    private WCC[] weather;
+
+    public String getTemp() {
+        return this.main.temp.toString();
+    }
+
+
+
+    @Getter
+    @Setter
+    @NoArgsConstructor
+    class WC {
+        private Double temp;
+    }
+
+    @Getter
+    @Setter
+    @NoArgsConstructor
+    class WCC {
+        private Integer id;
+        private String main;
+    }
+}
